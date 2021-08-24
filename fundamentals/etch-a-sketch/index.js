@@ -1,14 +1,13 @@
-const container = document.getElementById("container");
-console.log(container.innerText)
-function makeRows(rows, columns) {
-    container.style.setProperty("--grid-rows", rows);
-    container.style.setProperty("--grid-columns", columns);
-    for (let i = 0; i < (rows*columns); i++) {
-        let cell = document.createElement("div");
-        cell.className = "grid-item";
-        cell.innerText = i+1;
-        container.appendChild(cell);
-    }
-}
+const container = document.getElementById('container');
 
-makeRows(16,16);
+function makeRows(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-columns', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let cell = document.createElement('div');
+    cell.innerText = (c + 1);
+    container.appendChild(cell).className = "grid-item";
+  };
+};
+
+makeRows(16, 16);
