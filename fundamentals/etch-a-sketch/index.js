@@ -1,9 +1,16 @@
-const color = '#333333';
+const default_color = '#333333';
+
+let color = default_color;
 
 const grid = document.getElementById('grid');
 const clearButton = document.getElementById('clearBtn');
+const colorButton = document.getElementById('colorBtn');
+const eraserButton = document.getElementById('eraserBtn');
 
-clearButton.addEventListener('click', clearGrid)
+eraserButton.addEventListener('click', eraserPen);
+colorButton.addEventListener('click', colorPen);
+clearButton.addEventListener('click', clearGrid);
+
 
 function createGrid(size) {
 	grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -23,9 +30,15 @@ function clearGrid() {
 	for(let i = 0; i < content.length; i++) {
 		content[i].style.backgroundColor = 'white';
 	}
-	console.log('mizera');
 }
 
+function eraserPen() {
+	color = 'white';
+}
+
+function colorPen() {
+	color = default_color;
+}
 
 
 window.onload = () => {
